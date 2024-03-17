@@ -5,38 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="250" Width="800">
 
-    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
-        <!-- Перший ряд -->
-        <WrapPanel Orientation="Horizontal">
-            <Label Content="Label"/>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-        </WrapPanel>
-        <!-- Другий ряд -->
-        <WrapPanel Orientation="Horizontal">
-            <Label Content="Label"/>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-            <TextBox>TextBox</TextBox>
-        </WrapPanel>
+    <DockPanel LastChildFill="True">
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center">Label</Label>
+        <DockPanel LastChildFill="True">
+            <TextBox HorizontalAlignment="Left" Width="300">TextBox</TextBox>
+            <Button HorizontalAlignment="Center" Width="100" Height="30" Margin="50,100,0,0">Button</Button>
+            <TextBox HorizontalAlignment="Right" Width="300">TextBox</TextBox>
+        </DockPanel>
+    </DockPanel>
 
-        <!-- Другий ряд -->
-        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-            <Button Content="Button"/>
-        </WrapPanel>
-    </WrapPanel>
 
 </Window>
