@@ -7,13 +7,30 @@
         mc:Ignorable="d"
         Title="TextEditor" Height="400" Width="600">
 
+    <Window.Resources>
+        <LinearGradientBrush x:Key="LinearPanelBrush">
+            <GradientStop Color="Yellow" Offset="0"></GradientStop>
+            <GradientStop Color="Blue" Offset="0.5"></GradientStop>
+            <GradientStop Color="Yellow" Offset="0.8"></GradientStop>
+        </LinearGradientBrush>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button Width="70" Height="70">
                 <Image Source="images/open.png" ToolTip="Open file"/>
             </Button>
@@ -27,8 +44,8 @@
                 <Image Source="images/paste.png" ToolTip="Paste text"/>
             </Button>
         </StackPanel>
-        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"></Border>
-        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Margin="0,10,0,0">
+        </Border>
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="15,10,15,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -36,7 +53,7 @@
                 </Grid.RowDefinitions>
                 <TextBox Grid.Row="0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
                 <DockPanel Grid.Row="1" Margin="0,10,0,10">
-                    <Button Content="OK" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                    <Button Content="OK" Style="{x:Null}" Width="30" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
                 </DockPanel>
             </Grid>
         </Border>
