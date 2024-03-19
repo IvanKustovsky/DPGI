@@ -1,0 +1,63 @@
+﻿<Window x:Class="lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab2"
+        mc:Ignorable="d"
+        Title="TextEditor" Height="400" Width="600">
+
+    <Window.Resources>
+        <LinearGradientBrush x:Key="LinearPanelBrush">
+            <GradientStop Color="Yellow" Offset="0"></GradientStop>
+            <GradientStop Color="Blue" Offset="0.5"></GradientStop>
+            <GradientStop Color="Yellow" Offset="0.8"></GradientStop>
+        </LinearGradientBrush>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Width="70" Height="70" Command="Open">
+                <Image Source="images/open.png" ToolTip="Open file"/>
+            </Button>
+            <Button Width="70" Height="70" Command="Cut">
+                <Image Source="images/clean.png" ToolTip="Clear content"/>
+            </Button>
+                <Button Width="70" Height="70" Command="Copy" CommandTarget="{Binding ElementName=inputTextBox}">
+                <Image Source="images/copy.png" ToolTip="Copy text"/>
+            </Button>
+                <Button Width="70" Height="70" Command="Paste" CommandTarget="{Binding ElementName=inputTextBox}">
+                <Image Source="images/paste.png" ToolTip="Paste text"/>
+            </Button>
+        </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
+            <Grid Margin="15,10,15,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox Name="inputTextBox" Grid.Row="0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+                <DockPanel Grid.Row="1" Margin="0,10,0,10">
+                    <Label FontSize="14" FontWeight="Bold" Content="Розмір шрифту:"/>
+                    <Slider Name="fontSlider" MinWidth="100" Margin="4" Minimum="12" Maximum="100" Value="50"></Slider>
+                    <Button Content="OK" Style="{x:Null}" Width="30" DockPanel.Dock="Bottom" HorizontalAlignment="Center"  Command="Save"/>
+                </DockPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
